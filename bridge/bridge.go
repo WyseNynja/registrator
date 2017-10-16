@@ -326,7 +326,7 @@ func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 			if err != nil {
 				log.Println("unable to inspect network container:", networkContainerId[:12], err)
 			} else {
-				service.IP = networkContainer.NetworkSettings.IPAddress
+				service.IP = networkContainer.NetworkSettings.GlobalIPv6Address
 				log.Println(service.Name + ": using network container IP " + service.IP)
 			}
 		}
