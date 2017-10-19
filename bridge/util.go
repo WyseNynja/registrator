@@ -111,10 +111,10 @@ func servicePort(container *dockerapi.Container, port dockerapi.Port, published 
 	}
 
 	// Nir: support docker NetworkSettings
-	eip = container.NetworkSettings.IPAddress
+	eip = container.NetworkSettings.GlobalIPv6Address
 	if eip == "" {
 		for _, network := range container.NetworkSettings.Networks {
-			eip = network.IPAddress
+			eip = network.GlobalIPv6Address
 		}
 	}
 
